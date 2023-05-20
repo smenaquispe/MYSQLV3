@@ -1,0 +1,4 @@
+PassengerId int 
+Survived bool 
+Pclass int 
+Name str 
