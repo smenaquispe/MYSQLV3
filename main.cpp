@@ -9,7 +9,7 @@ int main() {
 
     f.extractSchema();
     f.toFile();
-    f.printFile(0);
+    f.printFile();
 
     return 0;
 }

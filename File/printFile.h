@@ -5,6 +5,8 @@
 
 
 void File::printFile() {
+    for(int i = 0; i < this->numberRegisters; i++)
+        printFile(i);
 }
 
 void File::printFile(int min, int max) {

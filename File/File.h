@@ -15,6 +15,7 @@ public:
     File() {
         this->buffer = new char[lenBuffer];
         numberColumns = 0;
+        numberRegisters = 0;
     }
 
     ~File() {
@@ -26,6 +27,8 @@ public:
     int totalRegisterBytes; // what is the total length of a register
     int * columnBytes;  // lenght of each column
     char * csv;
+
+    int numberRegisters;
 
     int lenBuffer = 1024;
     char *buffer;

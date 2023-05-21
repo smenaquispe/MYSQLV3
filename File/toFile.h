@@ -42,8 +42,9 @@ void File::toFile() {
                     column++;
                     token = myStrtok(nullptr, ",");
                 }
-
+                this->numberRegisters++;
             }
+
             
             if(isHeader) isHeader = false;
             if(pos >= sizeof(buffer)) {
