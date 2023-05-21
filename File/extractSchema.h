@@ -3,7 +3,7 @@
 
 
 #include"File.h"
-const char * getValue(char * type) {
+const char * getValue(const char * type) {
     if(!strcmp(type, "int")) {
         return "10";
     } else if(!strcmp(type, "str")) {
@@ -18,27 +18,33 @@ const char * getValue(char * type) {
 }
 
 void File::extractSchema() {
-    ifstream csvFile(this->csv);
-    ofstream schema("./docs/schema");
+    ifstream schema("./docs/schema");
     ofstream spacesSchema("./docs/spacesSchema");
 
-    if (csvFile.is_open()) {
+    if (schema.is_open()) {
         int pos = 0;
         char type[256];
-        csvFile.getline(buffer + pos, lenBuffer);
-        char *token = myStrtok(buffer + pos, ",");
-        while (token != nullptr)
+
+        while (schema.getline(buffer + pos, lenBuffer))
         {
-            cout<<token<<": ";
-            cin>>type;
-            schema<<token<<" "<<type<<" "<<endl;
-            spacesSchema<<getValue(type)<<" ";
-            numberColumns++;
-            token = myStrtok(nullptr, ",");
+            char *token = myStrtok(buffer + pos, " ");
+
+            bool isType = false;
+            while (token != nullptr)
+            {
+                if(isType) {
+                    spacesSchema<<getValue(token)<<" ";
+                    numberColumns++;
+                }
+
+                else isType = true;
+
+                token = myStrtok(nullptr, ",");
+            }
         }
+
         schema.close();
         spacesSchema.close();
-        csvFile.close();
     } else {
         cout<<"No se puede abrir"<<endl;
     }

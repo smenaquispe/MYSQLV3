@@ -33,8 +33,14 @@ public:
     // methods
     void setCsv(const char * csv) { strcpy(this->csv, csv); }
     void toFile();
-    void printFile(int);
     void extractSchema();
+
+    // print one
+    void printFile(int);
+    // print all
+    void printFile();
+    // print range
+    void printFile(int, int);
 };
 
 #include"toFile.h"

@@ -35,10 +35,14 @@ void File::toFile() {
                 char * token = myStrtok(buffer + pos, ",");
                 while (token != nullptr)
                 {
-                    file<<setw(this->columnBytes[column])<<token;
+                    if(strlen(token) != 0) 
+                        file<<setw(this->columnBytes[column])<<token;
+                    else 
+                        file<<setw(this->columnBytes[column])<<"-";
                     column++;
                     token = myStrtok(nullptr, ",");
                 }
+
             }
             
             if(isHeader) isHeader = false;

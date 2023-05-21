@@ -1,4 +1,12 @@
-PassengerId int 
-Survived bool 
-Pclass int 
-Name str 
+PassengerId int
+Survived bool
+Pclass int
+Name str
+Sex str
+Age int
+SibSp int
+Parch int
+Ticket str
+Fare float
+Cabin float
+Embarked bool
