@@ -2,6 +2,7 @@
 #define DISCO_H
 
 #include<iostream>
+#include<fstream>
 #include"../File/File.h"
 using namespace std;
 
@@ -20,9 +21,13 @@ public:
     unsigned int numPistas;
     unsigned int numSectores;
     unsigned int tamanoSector;
+
+    int NUMBER_REGISTER_PER_SECTOR = 5;
     File * file;
 
     unsigned int capacidad; // capacidad total
+
+    char * buffer;
 
     void calcCapacidad();
     void setFile(File * file);

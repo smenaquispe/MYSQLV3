@@ -9,8 +9,9 @@ int main() {
     f.setCsv("./docs/titanic.csv");
 
     Disco d(2,5,3, 500);
-    d.calcCapacidad();
+    //d.calcCapacidad();
     d.setFile(&f);
+    d.loadFile();
 
     return 0;
 }
