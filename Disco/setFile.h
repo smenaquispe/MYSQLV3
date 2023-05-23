@@ -15,6 +15,7 @@ void Disco::setFile(File * file, const char * tableName) {
     // el tamaño del sector es un multipo de los registros
     this->tamanoSector = file->totalRegisterBytes * NUMBER_REGISTER_PER_SECTOR;
 
+    this->lenBuffer = file->totalRegisterBytes;
     buffer = new char[file->totalRegisterBytes]; // el buffer tendra el tamaño para almacenar un registro
     
 }

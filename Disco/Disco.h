@@ -32,6 +32,7 @@ public:
 
     unsigned int capacidad; // capacidad total en bytes
 
+    int lenBuffer;
     char * buffer;
 
     void calcCapacidad();
@@ -40,6 +41,7 @@ public:
     void setDirectory();
     void printSector(const char * nameSector);
     void printSector();
+    void printInfoSector(const char * nameSector);
 };
 
 #include"getCapacidad.h"
@@ -47,6 +49,7 @@ public:
 #include"loadFile.h"
 #include"setDirectory.h"
 #include"printSector.h"
+#include"printInfoSector.h"
 
 
 #endif

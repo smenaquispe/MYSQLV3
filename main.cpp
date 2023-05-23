@@ -13,7 +13,6 @@ int main() {
     d.loadFile();
     d.setDirectory();
 
-    d.printSector();
-
+    d.printInfoSector("172");
     return 0;
 }
