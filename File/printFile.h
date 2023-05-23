@@ -17,6 +17,9 @@ void File::printFile(int min, int max) {
 
 void File::printFile(int numeroRegistro) {
     ifstream file("./docs/file");
+
+    numeroRegistro--;
+
     if(file.is_open()) {
         file.seekg((numeroRegistro * this->totalRegisterBytes) + 1);
         file.read(buffer, totalRegisterBytes);

@@ -13,8 +13,21 @@ int main() {
     d.loadFile();
     d.setDirectory();
 
+    cout<<"-----------------1------------------"<<endl;
+    cout<<"Capacidad de bytes por registro: "<<f.totalRegisterBytes<<endl;
+    cout<<"Capacidad de bytes del file: "<<f.totalRegisterBytes*f.numberRegisters<<endl;
+    f.printFile(80);
+
+    cout<<"-----------------2------------------"<<endl;
+    d.calcCapacidad();
+
+    cout<<"-----------------3------------------"<<endl;
+    d.printSector("002");
+    d.printInfoSector("002");
+
+    cout<<"-----------------4------------------"<<endl;
+    d.printBloque(4);
     d.printInfoBloque(4);
-    //d.printSector("002");
 
     return 0;
 }
