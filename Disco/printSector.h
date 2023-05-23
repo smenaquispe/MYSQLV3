@@ -34,7 +34,7 @@ void Disco::printSector(const char * nameSector) {
             sector.seekg((numeroRegistro * file->totalRegisterBytes) + 1);
             sector.read(buffer, file->totalRegisterBytes);
 
-            if(sector.eof()) break;
+            //if(sector.eof()) break;
 
             int prevSize = 0;
             for(int i = 0; i < file->numberColumns; i++) {

@@ -27,6 +27,8 @@ public:
 
     char *tableName;
 
+    int NUMBER_SECTORS_PER_CLUSTER = 3;
+    
     int NUMBER_REGISTER_PER_SECTOR = 5;
     File * file;
 
@@ -42,6 +44,10 @@ public:
     void printSector(const char * nameSector);
     void printSector();
     void printInfoSector(const char * nameSector);
+
+
+    void printBloque(int numeroBloque);
+    void printInfoBloque(int numeroBloque);
 };
 
 #include"getCapacidad.h"
@@ -50,6 +56,7 @@ public:
 #include"setDirectory.h"
 #include"printSector.h"
 #include"printInfoSector.h"
-
+#include"printBloque.h"
+#include"printInfoBloque.h"
 
 #endif
