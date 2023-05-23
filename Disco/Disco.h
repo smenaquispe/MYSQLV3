@@ -4,6 +4,8 @@
 #include<iostream>
 #include<fstream>
 #include<cmath>
+#include<filesystem>
+
 #include"../File/File.h"
 using namespace std;
 
@@ -36,11 +38,15 @@ public:
     void setFile(File * file, const char * tableName);
     void loadFile();
     void setDirectory();
+    void printSector(const char * nameSector);
+    void printSector();
 };
 
 #include"getCapacidad.h"
 #include"setFile.h"
 #include"loadFile.h"
 #include"setDirectory.h"
+#include"printSector.h"
+
 
 #endif

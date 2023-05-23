@@ -21,7 +21,7 @@ void Disco::loadFile() {
         ofstream sector;
 
         ostringstream nombreArchivoStream;
-        nombreArchivoStream<<"./Disco/data/"<<setfill('0')<<setw(digitos)<<to_string(contadorSectores);
+        nombreArchivoStream<<"./Disco/data/sectores/"<<setfill('0')<<setw(digitos)<<to_string(contadorSectores);
         sector.open(nombreArchivoStream.str());
 
         while (true) {
@@ -37,7 +37,7 @@ void Disco::loadFile() {
                 contadorRegistros = 0;
                 sector.close();
                 ostringstream nombreArchivoStream;
-                nombreArchivoStream<<"./Disco/data/"<<setfill('0')<<setw(digitos)<<to_string(++contadorSectores);
+                nombreArchivoStream<<"./Disco/data/sectores/"<<setfill('0')<<setw(digitos)<<to_string(++contadorSectores);
                 sector.open(nombreArchivoStream.str());
             }
 

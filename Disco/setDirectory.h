@@ -2,37 +2,21 @@
 #define SET_DIRECTORY
 
 #include"Disco.h"
-#include<filesystem>
 
 namespace fs = std::filesystem;
 
 void Disco::setDirectory() {
     ofstream directorio("./Disco/data/directorio");
-
-   /**
-    * el directorio guardará bloques
-    * los bloques tiene la informacion de que sector a que sector guarda
-    * el bloque estará ubicado en un plato, una superficie y un track
-    * 
-    * 
-    * 2 platos
-    * 2 superficies por plato
-    * 
-    * 
-    * 5 pistas por superficie
-    * 10 sectores por pista
-   */
-
+    
     int contPlatos = 1;
     int contSuperficies = 1;
     int contPistas = 1;
     int contSectores = 1;
     
-    for (const auto& archivo : fs::directory_iterator("./Disco/data")) {
+    for (const auto& archivo : fs::directory_iterator("./Disco/data/sectores/")) {
 
 
-        if(archivo.path().filename().string() != "directorio")
-            directorio << archivo.path().filename().string() << " " << contPlatos << " " << contSuperficies << " " << contPistas <<endl;
+        directorio << archivo.path().filename().string() << " " << contPlatos << " " << contSuperficies << " " << contPistas <<endl;
 
         contSectores++;
 
