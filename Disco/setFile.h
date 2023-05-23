@@ -3,9 +3,10 @@
 
 #include"Disco.h"
 
-void Disco::setFile(File * file) {
+void Disco::setFile(File * file, const char * tableName) {
     
     this->file = file;
+    strcpy(this->tableName, tableName);
     
     file->extractSchema();
     file->toFile();

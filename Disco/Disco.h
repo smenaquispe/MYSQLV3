@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<fstream>
+#include<cmath>
 #include"../File/File.h"
 using namespace std;
 
@@ -22,20 +23,24 @@ public:
     unsigned int numSectores;
     unsigned int tamanoSector;
 
+    char *tableName;
+
     int NUMBER_REGISTER_PER_SECTOR = 5;
     File * file;
 
-    unsigned int capacidad; // capacidad total
+    unsigned int capacidad; // capacidad total en bytes
 
     char * buffer;
 
     void calcCapacidad();
-    void setFile(File * file);
+    void setFile(File * file, const char * tableName);
     void loadFile();
+    void setDirectory();
 };
 
 #include"getCapacidad.h"
 #include"setFile.h"
 #include"loadFile.h"
+#include"setDirectory.h"
 
 #endif

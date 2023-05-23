@@ -16,20 +16,29 @@ void Disco::loadFile() {
         int contadorRegistros = 0;
         int contadorSectores = 0;
 
-        ofstream sector("./Disco/data/0");
+        int digitos = floor(log10(numTotalSectores)) + 1;
+
+        ofstream sector;
+
+        ostringstream nombreArchivoStream;
+        nombreArchivoStream<<"./Disco/data/"<<setfill('0')<<setw(digitos)<<to_string(contadorSectores);
+        sector.open(nombreArchivoStream.str());
+
         while (true) {
 
             f.seekg(posicionInicio, std::ios::beg);  // Establecer la posición de lectura
             f.read(buffer, file->totalRegisterBytes);  // Leer el segmento en el buffer
-        
+
             sector<<buffer;
 
-            ++contadorRegistros;
-            if(contadorRegistros == 5) {
+            contadorRegistros++;
+
+            if(contadorRegistros == this->NUMBER_REGISTER_PER_SECTOR) {
                 contadorRegistros = 0;
                 sector.close();
-                sector.open("./Disco/data/" + to_string(contadorSectores++));
-                
+                ostringstream nombreArchivoStream;
+                nombreArchivoStream<<"./Disco/data/"<<setfill('0')<<setw(digitos)<<to_string(++contadorSectores);
+                sector.open(nombreArchivoStream.str());
             }
 
             int caracteresLeidos = f.gcount();  // Obtener la cantidad de caracteres leídos
