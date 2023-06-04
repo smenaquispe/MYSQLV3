@@ -28,8 +28,8 @@ void Disco::loadFile() {
 
             f.seekg(posicionInicio, std::ios::beg);  // Establecer la posición de lectura
             f.read(buffer, file->totalRegisterBytes);  // Leer el segmento en el buffer
-
-            sector<<buffer;
+            
+            sector.write(buffer, file->totalRegisterBytes);
 
             contadorRegistros++;
 

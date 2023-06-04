@@ -13,21 +13,61 @@ int main() {
     d.loadFile();
     d.setDirectory();
 
-    cout<<"-----------------1------------------"<<endl;
-    cout<<"Capacidad de bytes por registro: "<<f.totalRegisterBytes<<endl;
-    cout<<"Capacidad de bytes del file: "<<f.totalRegisterBytes*f.numberRegisters<<endl;
-    f.printFile(80);
+    int opc, number;
+    string name;
 
-    cout<<"-----------------2------------------"<<endl;
-    d.calcCapacidad();
+    do
+    {
+        cout<<"-------DISCO-------"<<endl;
+        cout<<"1. Imprimir todo el file"<<endl;
+        cout<<"2. Imprimir un registro"<<endl;
+        cout<<"3. Calcular la capacidad del disco"<<endl;
+        cout<<"4. Imprimir un sector"<<endl;
+        cout<<"5. Informacion de un sector"<<endl;
+        cout<<"6. Imprimir un bloque"<<endl;
+        cout<<"7. Informcacion de un bloque"<<endl;
+        cout<<"8. Salir"<<endl;       
+        cout<<"Digite su opcion: ";
+        cin>>opc;
 
-    cout<<"-----------------3------------------"<<endl;
-    d.printSector("002");
-    d.printInfoSector("002");
 
-    cout<<"-----------------4------------------"<<endl;
-    d.printBloque(4);
-    d.printInfoBloque(4);
+        switch (opc)
+        {
+        case 1: f.printFile(); break;
+        case 2: {
+            cout<<"Nunero de registro: "; 
+            cin>>number;
+            f.printFile(number);
+        } break;
+        case 3: d.calcCapacidad(); break;
+        case 4: {
+            cout<<"Nombre de sector: ";
+            cin>>name;
+            d.printSector(name.c_str());
+        } break;
+        case 5: {
+            cout<<"Nombre de sector: ";
+            cin>>name;
+            d.printInfoSector(name.c_str());
+        } break;
+        case 6: {
+            cout<<"Numero de bloque: ";
+            cin>>number;
+            d.printBloque(number);
+        } break;
+        case 7: {
+            cout<<"Numero de bloque: ";
+            cin>>number;
+            d.printInfoBloque(number);
+        }
+        case 8: break;
+        default:
+            cout<<"No es una opcion valida"<<endl;
+            break;
+        }
+
+    } while (opc != 8);
+    
 
     return 0;
 }
