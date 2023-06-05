@@ -15,7 +15,8 @@ int main() {
 
     int opc, number;
     string name;
-
+    
+    /*
     do
     {
         cout<<"-------DISCO-------"<<endl;
@@ -68,6 +69,7 @@ int main() {
 
     } while (opc != 8);
     
-
+    */
+    d.addRegistro();
     return 0;
 }

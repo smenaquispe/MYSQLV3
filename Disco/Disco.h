@@ -37,6 +37,10 @@ public:
     int lenBuffer;
     char * buffer;
 
+
+    int contadorSectores;  
+    unsigned int numTotalSectores;
+
     void calcCapacidad();
     void setFile(File * file, const char * tableName);
     void loadFile();
@@ -48,6 +52,9 @@ public:
 
     void printBloque(int numeroBloque);
     void printInfoBloque(int numeroBloque);
+
+
+    void addRegistro();
 };
 
 #include"getCapacidad.h"
@@ -58,5 +65,6 @@ public:
 #include"printInfoSector.h"
 #include"printBloque.h"
 #include"printInfoBloque.h"
+#include"addRegistro.h"
 
 #endif

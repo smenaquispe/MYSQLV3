@@ -8,13 +8,13 @@ void Disco::loadFile() {
     // abrimos el file
     ifstream f("./docs/file");
 
-    unsigned int numTotalSectores = file->numberRegisters * 1.0 / NUMBER_REGISTER_PER_SECTOR;
+    numTotalSectores = file->numberRegisters * 1.0 / NUMBER_REGISTER_PER_SECTOR;
     
     // cuantos bytes alamcena cada registro
     if(f.is_open()) {
         int posicionInicio = 0;
         int contadorRegistros = 0;
-        int contadorSectores = 0;
+        contadorSectores = 0;
 
         int digitos = floor(log10(numTotalSectores)) + 1;
 
@@ -28,7 +28,9 @@ void Disco::loadFile() {
 
             f.seekg(posicionInicio, std::ios::beg);  // Establecer la posición de lectura
             f.read(buffer, file->totalRegisterBytes);  // Leer el segmento en el buffer
-            
+
+            if(f.eof()) break;
+
             sector.write(buffer, file->totalRegisterBytes);
 
             contadorRegistros++;

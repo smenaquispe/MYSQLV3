@@ -25,16 +25,19 @@ void Disco::printSector(const char * nameSector) {
     // Concatenar el nameSector al final del búfer
     std::strcat(rutaArchivo, nameSector);
 
-    
     ifstream sector(rutaArchivo);
 
     if(sector.is_open()) {
-        for(int numeroRegistro = 0; numeroRegistro < NUMBER_REGISTER_PER_SECTOR; numeroRegistro++)  {
 
-            sector.seekg((numeroRegistro * file->totalRegisterBytes) + 1);
-            sector.read(buffer, file->totalRegisterBytes);
+        int numeroRegistro = 0;
+        //for(int numeroRegistro = 0; numeroRegistro < NUMBER_REGISTER_PER_SECTOR; numeroRegistro++)  {
+        while (!sector.eof()){
 
             //if(sector.eof()) break;
+            
+            // movemos hacia el siguiente registro
+            sector.seekg((numeroRegistro * file->totalRegisterBytes) + 1);
+            sector.read(buffer, file->totalRegisterBytes);
 
             int prevSize = 0;
             for(int i = 0; i < file->numberColumns; i++) {
@@ -58,7 +61,9 @@ void Disco::printSector(const char * nameSector) {
 
             cout<<endl;
 
+            numeroRegistro++;
         }
+
         sector.close();
     } else {
         cout<<"Error abriendo el archvio sector"<<endl;
