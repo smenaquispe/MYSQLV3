@@ -13,7 +13,6 @@ int main() {
     d.loadFile();
     d.setDirectory();
 
-    /*
     int opc, number;
     string name;
     
@@ -28,7 +27,9 @@ int main() {
         cout<<"6. Imprimir un bloque"<<endl;
         cout<<"7. Informcacion de un bloque"<<endl;
         cout<<"8. Agregar registro"<<endl;
-        cout<<"9. Salir"<<endl;       
+        cout<<"9. Mover registros"<<endl;
+        cout<<"10. Remover registro"<<endl;
+        cout<<"11. Salir"<<endl;       
         cout<<"Digite su opcion: ";
         cin>>opc;
 
@@ -65,17 +66,19 @@ int main() {
         case 8: {
             d.addRegistro();
         } break;
-        case 9: break;
+        case 9: {
+            d.moveRegistro();
+        } break;
+        case 10: {
+            d.removeRegistro();
+        } break;
+        case 11: break;
         default:
             cout<<"No es una opcion valida"<<endl;
             break;
         }
 
-    } while (opc != 9);
+    } while (opc != 11);
     
-    */
-
-    d.moveRegistro();
-    d.printSector("000");
     return 0;
 }
