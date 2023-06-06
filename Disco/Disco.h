@@ -57,6 +57,10 @@ public:
 
 
     void addRegistro();
+    void moveRegistro();
+
+    void findRegistro(const char * idRegistro, char *& auxBuffer);
+    void findAndReplaceRegistro(const char * idRegistro, char * auxBuffer);
 };
 
 #include"getCapacidad.h"
@@ -68,5 +72,8 @@ public:
 #include"printBloque.h"
 #include"printInfoBloque.h"
 #include"addRegistro.h"
+#include"moveRegistro.h"
+#include"findRegistro.h"
+#include"findAndReplaceRegistro.h"
 
 #endif

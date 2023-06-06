@@ -13,6 +13,7 @@ int main() {
     d.loadFile();
     d.setDirectory();
 
+    /*
     int opc, number;
     string name;
     
@@ -72,7 +73,9 @@ int main() {
 
     } while (opc != 9);
     
-    
+    */
 
+    d.moveRegistro();
+    d.printSector("000");
     return 0;
 }
