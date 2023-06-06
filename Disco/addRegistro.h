@@ -3,9 +3,10 @@
 
 #include"Disco.h"
 
+
+
 void Disco::addRegistro() {
 
-    cout<<this->numTotalSectores<<endl;
     int digitos = floor(log10(numTotalSectores)) + 1;
     
     ostringstream nombreArchivoStream;
@@ -40,17 +41,58 @@ void Disco::addRegistro() {
 
         // guardamos en el nuevo sector
         if(newSector.is_open()) {
+            ifstream schema("./docs/schema");
+
+            if(schema.is_open()) {
+
+                string columnName, data;
+                int column = 0;
+                while (getline(schema,columnName))
+                {
+                    cout<<columnName<<": ";
+                    cin>>data;
+                    newSector<<setw(this->file->columnBytes[column++])<<data;
+                }
+                
+            } else {
+                cout<<"Error open schema file"<<endl;
+            }
+
+            schema.close();
             newSector.close();
         }
     } else {
         // agregamos el registro al final del ultimo sector
         ofstream newSector("./Disco/data/sectores/" + nombreArchivoStream.str(), ios::app);
 
+        
+        // guardamos en el nuevo sector
         if(newSector.is_open()) {
+            ifstream schema("./docs/schema");
+
+            if(schema.is_open()) {
+
+                string columnName, data;
+                int column = 0;
+                while (getline(schema,columnName))
+                {
+                    cout<<columnName<<": ";
+                    cin>>data;
+                    newSector<<setw(this->file->columnBytes[column++])<<data;
+                }
+                
+            } else {
+                cout<<"Error open schema file"<<endl;
+            }
+
+            schema.close();
             newSector.close();
         }
 
     }
+
+    // seteamos nuevamente el directorio de bloques
+    this->setDirectory();
 }
 
 #endif

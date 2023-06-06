@@ -6,6 +6,8 @@
 #include<cmath>
 #include<filesystem>
 
+#include<map>
+
 #include"../File/File.h"
 using namespace std;
 

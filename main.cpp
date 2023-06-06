@@ -16,7 +16,6 @@ int main() {
     int opc, number;
     string name;
     
-    /*
     do
     {
         cout<<"-------DISCO-------"<<endl;
@@ -27,7 +26,8 @@ int main() {
         cout<<"5. Informacion de un sector"<<endl;
         cout<<"6. Imprimir un bloque"<<endl;
         cout<<"7. Informcacion de un bloque"<<endl;
-        cout<<"8. Salir"<<endl;       
+        cout<<"8. Agregar registro"<<endl;
+        cout<<"9. Salir"<<endl;       
         cout<<"Digite su opcion: ";
         cin>>opc;
 
@@ -61,15 +61,18 @@ int main() {
             cin>>number;
             d.printInfoBloque(number);
         }
-        case 8: break;
+        case 8: {
+            d.addRegistro();
+        } break;
+        case 9: break;
         default:
             cout<<"No es una opcion valida"<<endl;
             break;
         }
 
-    } while (opc != 8);
+    } while (opc != 9);
     
-    */
-    d.addRegistro();
+    
+
     return 0;
 }
